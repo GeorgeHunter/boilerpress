@@ -49,5 +49,6 @@
 	<?php
 		global $template;
 		//print_r($template);
-		echo "am i george?"
+		echo "am i george now??";
+		echo "am i george now??"
 ?>

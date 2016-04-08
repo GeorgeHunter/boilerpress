@@ -215,38 +215,70 @@ add_filter( 'get_search_form', 'bright_search_form' );
 add_filter('gallery_style', create_function('$a', 'return "
 <div class=\'gallery\'>";'));
 
-function starter_customize_register( $wp_customize )
+function boilerplate_customize_register( $wp_customize )
 {
-	$wp_customize->add_section( 'starter_new_section_name' , array(
-		'title'    => __( 'Global Settings', 'starter' ),
+
+	// Declare the Sections
+
+	$wp_customize->add_section( 'boilerplate_global_settings' , array(
+		'title'    => __( 'Global Settings', 'boilerplate' ),
 		'priority' => 10
 	) );
 
-	$wp_customize->add_setting( 'starter_new_setting_names' , array(
+	$wp_customize->add_section( 'boilerplate_sidebar_settings' , array(
+		'title'    => __( 'Sidebar Settings', 'boilerplate' ),
+		'priority' => 10
+	) );
+
+
+	// Declare the Settings
+
+	$wp_customize->add_setting( 'boilerplate_site_logo' , array(
+		//'default'   => 'upload',
+		'transport' => 'refresh',
+		'type' => 'theme_mod',
+	) );
+
+	$wp_customize->add_setting( 'boilerplate_primary_color' , array(
 		'default'   => 'blue',
 		'transport' => 'refresh',
 		'type' => 'theme_mod',
 
 	) );
 
-	$wp_customize->add_setting( 'starter_site_logo' , array(
-		//'default'   => 'upload',
+	$wp_customize->add_setting( 'boilerplate_sidebar_on' , array(
+		'default'   => false,
 		'transport' => 'refresh',
 		'type' => 'theme_mod',
+
 	) );
 
+	// Declare the controls
+
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_logo', array(
-		'label'    => __( 'Site Logo', 'starter' ),
-		'section'  => 'starter_new_section_name',
-		'settings' => 'starter_site_logo',
+		'label'    => __( 'Site Logo', 'boilerplate' ),
+		'section'  => 'boilerplate_global_settings',
+		'settings' => 'boilerplate_site_logo',
 	) ) );
 
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-		'label'    => __( 'Primary Colour', 'starter' ),
-		'section'  => 'starter_new_section_name',
-		'settings' => 'starter_new_setting_names',
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_color', array(
+		'label'    => __( 'Primary Colour', 'boilerplate' ),
+		'section'  => 'boilerplate_global_settings',
+		'settings' => 'boilerplate_primary_color',
 	) ) );
 
+	$wp_customize->add_control(
+		'boilerplate_sidebar_on',
+		array(
+			'section'   => 'boilerplate_sidebar_settings',
+			'label'     => 'Enable Sidebar',
+			'type'      => 'checkbox'
+		)
+	);
 }
-add_action( 'customize_register', 'starter_customize_register');
+
+
+add_action( 'customize_register', 'boilerplate_customize_register');
+
+//todo image dir function
 

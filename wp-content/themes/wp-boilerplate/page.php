@@ -5,7 +5,7 @@
  */
 
 get_header(); ?>
-<div class="container">
+<div class="wrap">
   <div class="content">
     <?php the_post(); ?>
     <?php get_template_part( 'content', 'page' ); ?>

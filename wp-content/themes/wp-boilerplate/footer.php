@@ -6,8 +6,8 @@
 ?>
 
 <footer class="footer" class="clearfix">
-	<div class="container">
-		<p>Created by <a href="http://stellasoft.co.uk/">stellasoft</a></p>
+	<div class="wrap">
+		<p>Created by <a href="http://georgehunter.github.com/">George Hunter</a></p>
 	</div>
 </footer><!-- end colophon -->
 </div><!-- end page -->

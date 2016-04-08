@@ -5,7 +5,7 @@
  */
 
 get_header(); ?>
-<div class="container">
+<div class="wrap">
 	<div class="content">
 		<header class="page-header">
 			<h1 class="entry-title"><?php $category = get_the_category(); echo $category[0]->cat_name;?></h1>

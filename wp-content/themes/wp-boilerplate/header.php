@@ -17,10 +17,19 @@
 <body <?php body_class(); ?>>
 <div class="page">
 	<header class="header">
-		<div class="container">
+		<div class="wrap">
 			<div class="site-branding">
-				<a id="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-				<span id="site-description"><?php bloginfo( 'description' ); ?></span>
+				<?php if ( get_theme_mod( 'boilerplate_site_logo' ) ) : ?>
+				
+					<a id="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+						<img src="<?php echo get_theme_mod( 'boilerplate_site_logo') ; ?>" alt="">
+					</a>
+
+				<?php else : ?>
+					<a id="logo" href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				<?php endif; ?>
+
+
 			</div>
 			<!-- end site-title -->
 			<nav class="main-nav" class="clearfix">
@@ -32,7 +41,8 @@
 	<!-- end header -->
 
 
-	<?php //echo get_theme_mod( 'site_logo') ; ?>
+	<?php //echo get_theme_mod( 'boilerplate_primary_color', 'blue') ; ?>
+	<?php //echo get_theme_mod( 'boilerplate_site_logo') ; ?>
 
 
 

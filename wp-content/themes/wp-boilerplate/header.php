@@ -49,4 +49,5 @@
 	<?php
 		global $template;
 		//print_r($template);
+		echo "am i george?"
 ?>
